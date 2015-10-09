@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *urlTableView;
 - (IBAction)clearCacheData:(id)sender;
 - (IBAction)loadUrlAction:(id)sender;
+- (IBAction)maaSwitch:(id)sender;
+- (IBAction)accelerationSwitch:(id)sender;
 
 @end
 
@@ -52,6 +54,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self loadVCFromStoryboard];
+    [FWMobileTestUtil clearDataAndTime];
     webVC.loadUrlString = (NSString*)[urlArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:webVC animated:true];
 }
@@ -101,5 +104,19 @@
     [self loadVCFromStoryboard];
     webVC.loadUrlString = self.urlEditText.text;
     [self.navigationController pushViewController:webVC animated:true];
+}
+
+- (IBAction)maaSwitch:(id)sender {
+    UISwitch *maaSwitchBtn = (UISwitch*)sender;
+    if ([maaSwitchBtn isOn]) {
+        [FWMobService start:DEVKEY];
+    }else{
+        [FWMobService stop];
+    }
+}
+
+- (IBAction)accelerationSwitch:(id)sender {
+    UISwitch *acceleSwitch = (UISwitch*)sender;
+    [FWMobileTestUtil httpAcclerateSwitch:acceleSwitch.on];
 }
 @end

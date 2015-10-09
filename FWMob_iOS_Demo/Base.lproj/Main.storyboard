@@ -76,13 +76,6 @@
                                 <color key="textColor" red="0.80860071970000003" green="0.42839546979999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0L-Lr-sNz">
-                                <rect key="frame" x="76" y="105" width="51" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="a0S-fi-HaJ"/>
-                                    <constraint firstAttribute="width" constant="49" id="pIc-kJ-jbR"/>
-                                </constraints>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="加速" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtD-7F-vao">
                                 <rect key="frame" x="290" y="110" width="51" height="21"/>
                                 <constraints>
@@ -99,6 +92,9 @@
                                     <constraint firstAttribute="height" constant="31" id="DnY-nf-Xlq"/>
                                     <constraint firstAttribute="width" constant="49" id="QW1-gl-5XV"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="accelerationSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="hYa-d6-bES"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cId-Sn-LKQ">
                                 <rect key="frame" x="545" y="105" width="50" height="30"/>
@@ -117,6 +113,16 @@
                                 <rect key="frame" x="0.0" y="144" width="600" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0L-Lr-sNz">
+                                <rect key="frame" x="76" y="105" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="a0S-fi-HaJ"/>
+                                    <constraint firstAttribute="width" constant="49" id="pIc-kJ-jbR"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="maaSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="17U-2E-atf"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
