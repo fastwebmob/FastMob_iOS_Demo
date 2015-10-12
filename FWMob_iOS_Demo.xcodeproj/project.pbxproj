@@ -316,6 +316,7 @@
 					"$(PROJECT_DIR)/FWMob_iOS_Demo",
 				);
 				INFOPLIST_FILE = FWMob_iOS_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "www.fastweb.com.cn.FWMob-iOS-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -331,6 +332,7 @@
 					"$(PROJECT_DIR)/FWMob_iOS_Demo",
 				);
 				INFOPLIST_FILE = FWMob_iOS_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "www.fastweb.com.cn.FWMob-iOS-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
