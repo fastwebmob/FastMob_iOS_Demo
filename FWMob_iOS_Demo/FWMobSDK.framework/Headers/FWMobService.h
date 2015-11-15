@@ -8,6 +8,34 @@
 
 #import <Foundation/Foundation.h>
 
+/*!
+	@discussion FastMob http tcp服务状态
+	@param
+ FWMobServiceStatus：
+ FWMobServiceStatusInit：初始化
+ FWMobServiceStatusSuccessful：成功
+ FWMobServiceStatusStopped：停止
+ FWMobServiceStatusFailed：失败
+ */
+typedef NS_ENUM(NSInteger, FWMobServiceStatus) {
+    FWMobServiceStatusInit = 0,
+    FWMobServiceStatusSuccessful = 1,
+    FWMobServiceStatusStopped = 2,
+    FWMobServiceStatusFailed = -1,
+};
+
+
+@protocol FWMobServiceStatusDelegate <NSObject>
+@optional
+/*!
+	@discussion http service状态改变回调
+ */
+- (void)didGetHttpServiceStatus:(FWMobServiceStatus)status;
+/*!
+	@discussion tcp service状态改变回调
+ */
+- (void)didGetTcpServiceStatus:(FWMobServiceStatus)status;
+@end
 
 /*!
 	@discussion FastMob内容层压缩等级
@@ -53,15 +81,15 @@ typedef NS_ENUM(NSInteger,FWCompressionLevel){
 	@discussion Http header 压缩模式
 	@param
             FWHttpCompressionLevel：
-                    FWHttpCompressionOriginal：不压缩
-                    FWHttpCompressionStrict：严格模式压缩
-                    FWHttpCompressionNoStrict：非严格模式压缩
+                    FWHttpHeaderCompressionOriginal：不压缩
+                    FWHttpHeaderCompressionStrict：严格模式压缩
+                    FWHttpHeaderCompressionNoStrict：非严格模式压缩
 	@result
  */
-typedef NS_ENUM(NSInteger,FWHttpCompressionMode){
-    FWHttpCompressionOriginal,
-    FWHttpCompressionStrict,
-    FWHttpCompressionNoStrict,
+typedef NS_ENUM(NSInteger,FWHttpHeaderCompressionMode){
+    FWHttpHeaderCompressionOriginal,
+    FWHttpHeaderCompressionStrict,
+    FWHttpHeaderCompressionNoStrict,
 };
 
 @interface FWMobService : NSObject
@@ -96,7 +124,7 @@ typedef NS_ENUM(NSInteger,FWHttpCompressionMode){
 	@param
 	@result
  */
-+ (int) proxyPort;
++ (int)proxyPort;
 
 /*!
 	@function proxyHost
@@ -105,7 +133,7 @@ typedef NS_ENUM(NSInteger,FWHttpCompressionMode){
 	@result
  */
 
-+ (NSString *) proxyHost;
++ (NSString *)proxyHost;
 
 /*!
 	@function debugOn
@@ -128,13 +156,34 @@ typedef NS_ENUM(NSInteger,FWHttpCompressionMode){
 + (void)setDebugLogLevel:(FWLoglevel)logLevel;
 
 /*!
-	@function isRunning
-	@discussion FastMob服务是否开启
-	@param
+	@result FastMob HTTP服务状态
+ */
++ (FWMobServiceStatus)httpServiceStatus;
+
+/*!
+	@result FastMob TCP服务状态
+ */
++ (FWMobServiceStatus)tcpServiceStatus;
+
+/*!
+	set status delegate (http and tcp)
+	@param delegate: FWMobServiceStatusDelegate
+ */
++ (void)setServiceDelegate:(id<FWMobServiceStatusDelegate>)delegate;
+
+/*!
+	@function isHttpServiceRunning
+	@discussion FastMob HTTP服务是否开启
 	@result
  */
++ (BOOL)isHttpServiceRunning;
 
-+ (BOOL)isRunning;
+/*!
+	@function isTcpServiceRunning
+	@discussion FastMob TCP服务是否开启
+	@result
+ */
++ (BOOL)isTcpServiceRunning;
 
 /*!
 	@function setCompressionLevel
@@ -154,7 +203,7 @@ typedef NS_ENUM(NSInteger,FWHttpCompressionMode){
                   0:不压缩 1:严格压缩 2:非严格压缩
 	@result
  */
-+ (void)setHttpHeadCompressionModel:(FWHttpCompressionMode)mode;
++ (void)setHttpHeaderCompressionMode:(FWHttpHeaderCompressionMode)mode;
 
 
 @end

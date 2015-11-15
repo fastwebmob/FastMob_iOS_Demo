@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3ECC95CA1BC7B1770019B2EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC95C81BC7B1770019B2EF /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		3ECC95CF1BC7BCC70019B2EF /* FWMobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECC95CE1BC7BCC70019B2EF /* FWMobSDK.framework */; settings = {ASSET_TAGS = (); }; };
-		EDCAC6011BB4F51300BA61CE /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAC6001BB4F51300BA61CE /* WebViewController.m */; settings = {ASSET_TAGS = (); }; };
+		3E7913051BF87E340033177A /* FWMobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7913041BF87E340033177A /* FWMobSDK.framework */; };
+		3ECC95CA1BC7B1770019B2EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC95C81BC7B1770019B2EF /* LaunchScreen.storyboard */; };
+		EDCAC6011BB4F51300BA61CE /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAC6001BB4F51300BA61CE /* WebViewController.m */; };
 		EDE9A3D11BB3F9CB00A2D429 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE9A3D01BB3F9CB00A2D429 /* main.m */; };
 		EDE9A3D41BB3F9CB00A2D429 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE9A3D31BB3F9CB00A2D429 /* AppDelegate.m */; };
 		EDE9A3D71BB3F9CB00A2D429 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE9A3D61BB3F9CB00A2D429 /* ViewController.m */; };
@@ -18,13 +18,13 @@
 		EDE9A4051BB3FFB500A2D429 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE9A4041BB3FFB500A2D429 /* libz.1.2.5.tbd */; };
 		EDE9A4071BB3FFC200A2D429 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE9A4061BB3FFC200A2D429 /* libstdc++.tbd */; };
 		EDE9A4091BB4000300A2D429 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE9A4081BB4000300A2D429 /* CoreTelephony.framework */; };
-		EDE9A40D1BB4007300A2D429 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE9A40C1BB4007300A2D429 /* Reachability.m */; settings = {ASSET_TAGS = (); }; };
+		EDE9A40D1BB4007300A2D429 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE9A40C1BB4007300A2D429 /* Reachability.m */; };
 		EDE9A40F1BB400DF00A2D429 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE9A40E1BB400DF00A2D429 /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E7913041BF87E340033177A /* FWMobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FWMobSDK.framework; sourceTree = "<group>"; };
 		3ECC95C91BC7B1770019B2EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3ECC95CE1BC7BCC70019B2EF /* FWMobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FWMobSDK.framework; sourceTree = "<group>"; };
 		EDCAC5FF1BB4F51300BA61CE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		EDCAC6001BB4F51300BA61CE /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		EDE9A3CC1BB3F9CB00A2D429 /* FWMob_iOS_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWMob_iOS_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +51,7 @@
 			files = (
 				EDE9A40F1BB400DF00A2D429 /* libresolv.tbd in Frameworks */,
 				EDE9A4091BB4000300A2D429 /* CoreTelephony.framework in Frameworks */,
-				3ECC95CF1BC7BCC70019B2EF /* FWMobSDK.framework in Frameworks */,
+				3E7913051BF87E340033177A /* FWMobSDK.framework in Frameworks */,
 				EDE9A4071BB3FFC200A2D429 /* libstdc++.tbd in Frameworks */,
 				EDE9A4051BB3FFB500A2D429 /* libz.1.2.5.tbd in Frameworks */,
 			);
@@ -63,7 +63,7 @@
 		3ECC95CD1BC7BCA10019B2EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3ECC95CE1BC7BCC70019B2EF /* FWMobSDK.framework */,
+				3E7913041BF87E340033177A /* FWMobSDK.framework */,
 				EDE9A40E1BB400DF00A2D429 /* libresolv.tbd */,
 				EDE9A4081BB4000300A2D429 /* CoreTelephony.framework */,
 				EDE9A4061BB3FFC200A2D429 /* libstdc++.tbd */,

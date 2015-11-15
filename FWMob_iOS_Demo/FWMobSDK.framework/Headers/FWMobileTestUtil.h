@@ -1,6 +1,6 @@
 //
 //  FWMobileTestUtil.h
-//  MAASDK
+//  FastMobile
 //
 //  Created by fastweb on 8/12/15.
 //  Copyright (c) 2015 Fastweb. All rights reserved.
@@ -54,6 +54,7 @@
             return： WCDMA
  */
 +(NSString*)getCurrentNetWorkType;
+
 /*!
 	@function setHttpHeadOpt
 	@discussion http head 压缩是否开启开关
@@ -63,24 +64,7 @@
 	@result
  */
 +(void)setHttpHeadOpt:(BOOL)flag;
-/*!
-	@function deviceString
-	@discussion 获取设备类型
-	@param
-	@result
-        such as：iPhone 6 Plus
-        return：iPhone 6 Plus
- */
-+(NSString*)deviceString;
-/*!
-	@function deviceResolution
-	@discussion 获取设备分辨率
-	@param
-	@result 
-            such as：5s 
-            return：320*568
- */
-+(NSString*)deviceResolution;
+
 /*!
 	@function httpAcclerateSwitch
 	@discussion 加速功能是否开启
