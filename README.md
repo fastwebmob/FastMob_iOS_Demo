@@ -9,7 +9,7 @@ FastMobile SDK开发者文档（iOS）
 3、	SDK使用方式
 ---3.1集成SDK
 
-* 1、将FWMobSDK.framework添加到工程中 * 2、添加的支持库  CoreTelephony.framework, libz.tbd, libresolv.tbd, libstdc++.tbd3.2 使用方法
+* 1、将FWMobSDK.framework添加到工程中 * 2、添加支持库  CoreTelephony.framework, libz.tbd, libresolv.tbd, libstdc++.tbd3.2 使用方法
 * 1、在应用启动时，添加启动服务代码，如下： 
 ```json
 	- (BOOL)application:(UIApplication *)application 
