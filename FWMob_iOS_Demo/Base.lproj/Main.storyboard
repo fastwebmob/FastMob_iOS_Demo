@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cqv-g2-ofD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cqv-g2-ofD">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -75,7 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加速开启" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtD-7F-vao">
-                                <rect key="frame" x="426" y="110" width="70" height="21"/>
+                                <rect key="frame" x="416" y="110" width="70" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FZn-z3-BUb"/>
                                     <constraint firstAttribute="width" constant="70" id="k8k-bq-box"/>
@@ -85,7 +86,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceM-9P-KMv">
-                                <rect key="frame" x="496" y="105" width="51" height="31"/>
+                                <rect key="frame" x="486" y="105" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="TIv-z5-B8B"/>
                                     <constraint firstAttribute="width" constant="49" id="lcq-l5-W14"/>
@@ -133,7 +134,7 @@
                             <constraint firstItem="F9E-wE-X2N" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="Pf8-Er-Ca3"/>
                             <constraint firstItem="XED-2t-jfj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="7" id="Qs9-1B-cdU"/>
                             <constraint firstItem="8ul-aN-O7T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="TOQ-JW-BCr"/>
-                            <constraint firstItem="cId-Sn-LKQ" firstAttribute="leading" secondItem="ceM-9P-KMv" secondAttribute="trailing" id="Th8-9j-tWo"/>
+                            <constraint firstItem="cId-Sn-LKQ" firstAttribute="leading" secondItem="ceM-9P-KMv" secondAttribute="trailing" constant="10" id="Th8-9j-tWo"/>
                             <constraint firstItem="M0L-Lr-sNz" firstAttribute="top" secondItem="F9E-wE-X2N" secondAttribute="bottom" constant="8" id="W8b-Am-JNY"/>
                             <constraint firstItem="M5X-V5-qUD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Z9o-2i-Q7K"/>
                             <constraint firstItem="XED-2t-jfj" firstAttribute="leading" secondItem="F9E-wE-X2N" secondAttribute="trailing" constant="10" id="cfH-yl-n7v"/>
@@ -149,6 +150,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="FastMobile Demo" id="1yx-Y0-YNG"/>
                     <connections>
+                        <outlet property="serviceStatusSwitch" destination="M0L-Lr-sNz" id="aak-jg-oIZ"/>
                         <outlet property="urlEditText" destination="F9E-wE-X2N" id="Ka6-Vf-quf"/>
                         <outlet property="urlTableView" destination="M5X-V5-qUD" id="v6R-rI-WDV"/>
                     </connections>

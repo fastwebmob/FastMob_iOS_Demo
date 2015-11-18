@@ -8,12 +8,13 @@
 
 #import "ViewController.h"
 #import "WebViewController.h"
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>{
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate, FWMobServiceStatusDelegate>{
     NSArray *urlArray;
     WebViewController *webVC;
 }
 @property (weak, nonatomic) IBOutlet UITextField *urlEditText;
 
+@property (weak, nonatomic) IBOutlet UISwitch *serviceStatusSwitch;
 @property (weak, nonatomic) IBOutlet UITableView *urlTableView;
 - (IBAction)clearCacheData:(id)sender;
 - (IBAction)loadUrlAction:(id)sender;
@@ -26,9 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [FWMobService setServiceDelegate:self];
     self.navigationController.tabBarController.tabBar.hidden = true;
+    if ([FWMobService isHttpServiceRunning]) {
+        _serviceStatusSwitch.on = YES;
+    }else{
+        _serviceStatusSwitch.on = NO;
+        
+    }
 
-    urlArray = [[NSArray alloc]initWithObjects:@"http://demo.fwmob.com:8080/fastmobdemo/index.html",nil];
+    urlArray = [[NSArray alloc]initWithObjects:@"http://demo.fwmob.com:8080/fastmobdemo/index.html", nil];
     self.urlTableView.delegate = self;
     self.urlTableView.dataSource = self;
     
@@ -118,5 +126,11 @@
 - (IBAction)accelerationSwitch:(id)sender {
     UISwitch *acceleSwitch = (UISwitch*)sender;
     [FWMobileTestUtil httpAcclerateSwitch:acceleSwitch.on];
+}
+
+- (void)didGetHttpServiceStatus:(FWMobServiceStatus)status{
+    if (status == FWMobServiceStatusSuccessful) {
+        _serviceStatusSwitch.on = YES;
+    }
 }
 @end
