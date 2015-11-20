@@ -81,15 +81,15 @@ typedef NS_ENUM(NSInteger,FWCompressionLevel){
 	@discussion Http header 压缩模式
 	@param
             FWHttpCompressionLevel：
-                    FWHttpCompressionOriginal：不压缩
-                    FWHttpCompressionStrict：严格模式压缩
-                    FWHttpCompressionNoStrict：非严格模式压缩
+                    FWHttpHeaderCompressionOriginal：不压缩
+                    FWHttpHeaderCompressionStrict：严格模式压缩
+                    FWHttpHeaderCompressionNoStrict：非严格模式压缩
 	@result
  */
-typedef NS_ENUM(NSInteger,FWHttpCompressionMode){
-    FWHttpCompressionOriginal,
-    FWHttpCompressionStrict,
-    FWHttpCompressionNoStrict,
+typedef NS_ENUM(NSInteger,FWHttpHeaderCompressionMode){
+    FWHttpHeaderCompressionOriginal,
+    FWHttpHeaderCompressionStrict,
+    FWHttpHeaderCompressionNoStrict,
 };
 
 @interface FWMobService : NSObject
@@ -203,7 +203,7 @@ typedef NS_ENUM(NSInteger,FWHttpCompressionMode){
                   0:不压缩 1:严格压缩 2:非严格压缩
 	@result
  */
-+ (void)setHttpHeadCompressionModel:(FWHttpCompressionMode)mode;
++ (void)setHttpHeaderCompressionMode:(FWHttpHeaderCompressionMode)mode;
 
 
 @end
