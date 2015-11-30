@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3E3E8FD51BFEC60700B86D6C /* FWMobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3E8FD41BFEC60700B86D6C /* FWMobSDK.framework */; };
 		3E3E8FD71BFEC64200B86D6C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3E8FD61BFEC64200B86D6C /* libz.tbd */; };
+		3E92BDA21C0C749A007BE61A /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E92BDA11C0C749A007BE61A /* WebP.framework */; };
+		3E92BDA41C0C74C7007BE61A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E92BDA31C0C74C7007BE61A /* ImageIO.framework */; };
+		3E92BDA61C0C74D5007BE61A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E92BDA51C0C74D5007BE61A /* AssetsLibrary.framework */; };
+		3E92BDA81C0C74E0007BE61A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E92BDA71C0C74E0007BE61A /* MobileCoreServices.framework */; };
+		3E92BDAA1C0C74EC007BE61A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E92BDA91C0C74EC007BE61A /* Accelerate.framework */; };
 		3ECC95CA1BC7B1770019B2EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC95C81BC7B1770019B2EF /* LaunchScreen.storyboard */; };
 		EDCAC6011BB4F51300BA61CE /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCAC6001BB4F51300BA61CE /* WebViewController.m */; };
 		EDE9A3D11BB3F9CB00A2D429 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE9A3D01BB3F9CB00A2D429 /* main.m */; };
@@ -25,6 +30,12 @@
 /* Begin PBXFileReference section */
 		3E3E8FD41BFEC60700B86D6C /* FWMobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FWMobSDK.framework; path = Libs/FWMobSDK.framework; sourceTree = SOURCE_ROOT; };
 		3E3E8FD61BFEC64200B86D6C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3E92BDA11C0C749A007BE61A /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Libs/WebP.framework; sourceTree = SOURCE_ROOT; };
+		3E92BDA31C0C74C7007BE61A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		3E92BDA51C0C74D5007BE61A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		3E92BDA71C0C74E0007BE61A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3E92BDA91C0C74EC007BE61A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		3E92BDAB1C0CA359007BE61A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		3ECC95C91BC7B1770019B2EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDCAC5FF1BB4F51300BA61CE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		EDCAC6001BB4F51300BA61CE /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
@@ -49,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E92BDAA1C0C74EC007BE61A /* Accelerate.framework in Frameworks */,
+				3E92BDA81C0C74E0007BE61A /* MobileCoreServices.framework in Frameworks */,
+				3E92BDA61C0C74D5007BE61A /* AssetsLibrary.framework in Frameworks */,
+				3E92BDA41C0C74C7007BE61A /* ImageIO.framework in Frameworks */,
+				3E92BDA21C0C749A007BE61A /* WebP.framework in Frameworks */,
 				3E3E8FD71BFEC64200B86D6C /* libz.tbd in Frameworks */,
 				EDE9A40F1BB400DF00A2D429 /* libresolv.tbd in Frameworks */,
 				EDE9A4091BB4000300A2D429 /* CoreTelephony.framework in Frameworks */,
@@ -63,8 +79,13 @@
 		3ECC95CD1BC7BCA10019B2EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E92BDA11C0C749A007BE61A /* WebP.framework */,
 				3E3E8FD41BFEC60700B86D6C /* FWMobSDK.framework */,
 				EDE9A40E1BB400DF00A2D429 /* libresolv.tbd */,
+				3E92BDA91C0C74EC007BE61A /* Accelerate.framework */,
+				3E92BDA71C0C74E0007BE61A /* MobileCoreServices.framework */,
+				3E92BDA51C0C74D5007BE61A /* AssetsLibrary.framework */,
+				3E92BDA31C0C74C7007BE61A /* ImageIO.framework */,
 				EDE9A4081BB4000300A2D429 /* CoreTelephony.framework */,
 				EDE9A4061BB3FFC200A2D429 /* libstdc++.tbd */,
 				3E3E8FD61BFEC64200B86D6C /* libz.tbd */,
@@ -92,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				EDE9A40A1BB4007300A2D429 /* Reachability */,
+				3E92BDAB1C0CA359007BE61A /* Constants.h */,
 				EDE9A3D21BB3F9CB00A2D429 /* AppDelegate.h */,
 				EDE9A3D31BB3F9CB00A2D429 /* AppDelegate.m */,
 				EDE9A3D51BB3F9CB00A2D429 /* ViewController.h */,

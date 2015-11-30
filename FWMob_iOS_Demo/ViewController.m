@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "WebViewController.h"
+#import <FWMobSDK/FWMobService.h>
+#import "Constants.h"
+
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>{
     NSArray *urlArray;
     WebViewController *webVC;
@@ -54,7 +57,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self loadVCFromStoryboard];
-    [FWMobileTestUtil clearDataAndTime];
+//    [FWMobileTestUtil clearDataAndTime];
     webVC.loadUrlString = (NSString*)[urlArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:webVC animated:true];
 }
@@ -109,7 +112,7 @@
 - (IBAction)maaSwitch:(id)sender {
     UISwitch *maaSwitchBtn = (UISwitch*)sender;
     if ([maaSwitchBtn isOn]) {
-        [FWMobService start:DEVKEY];
+        [FWMobService start:APP_DEV_KEY];
     }else{
         [FWMobService stop];
     }
@@ -117,6 +120,6 @@
 
 - (IBAction)accelerationSwitch:(id)sender {
     UISwitch *acceleSwitch = (UISwitch*)sender;
-    [FWMobileTestUtil httpAcclerateSwitch:acceleSwitch.on];
+    [FWMobService acclerateOn:acceleSwitch.on];
 }
 @end

@@ -62,6 +62,7 @@ typedef NS_ENUM(NSInteger, FWLoglevel) {
 	@discussion FastMob内容层压缩等级
 	@param
             FWCompressionLevel：
+            FWCompressionWebp：Webp压缩
             FWCompressionHigh：高
             FWCompressionMiddle：中
             FWCompressionLow：低
@@ -70,6 +71,7 @@ typedef NS_ENUM(NSInteger, FWLoglevel) {
 	@result
  */
 typedef NS_ENUM(NSInteger,FWCompressionLevel){
+    FWCompressionWebp,
     FWCompressionHigh,
     FWCompressionMiddle,
     FWCompressionLow,
@@ -186,16 +188,6 @@ typedef NS_ENUM(NSInteger,FWHttpHeaderCompressionMode){
 + (BOOL)isTcpServiceRunning;
 
 /*!
-	@function setCompressionLevel
-	@discussion 设置FastMob压缩级别
-	@param 
-            level:
-                   H:高 M:中 L:低 O:不进行有损压缩 D:默认
-	@result
- */
-+ (void)setCompressionLevel:(FWCompressionLevel)level;
-
-/*!
 	@function setHttpHeadCompressionModel
 	@discussion 设置Http头压缩模式
 	@param
@@ -205,5 +197,14 @@ typedef NS_ENUM(NSInteger,FWHttpHeaderCompressionMode){
  */
 + (void)setHttpHeaderCompressionMode:(FWHttpHeaderCompressionMode)mode;
 
+/*!
+	@function acclerateOn
+	@discussion 加速功能是否开启
+	@param
+ flag:
+ true:开始加速功能 false:关闭加速功能
+	@result
+ */
++(void)acclerateOn:(BOOL)flag;
 
 @end

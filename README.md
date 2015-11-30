@@ -15,7 +15,7 @@ iOS 6.0及以上版本。
 3.1集成SDK
 
 * 1、将FWMobSDK.framework添加到工程中 
-* 2、添加支持库  CoreTelephony.framework, libz.tbd, libresolv.tbd, libstdc++.tbd
+* 2、添加支持库  CoreTelephony.framework, ImageIO.framework, AssetsLibrary.framework, MobileCoreServices.framework, Accelerate.framework, libz.tbd, libresolv.tbd, libstdc++.tbd
 
 3.2 使用方法
 
