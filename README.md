@@ -37,7 +37,7 @@ iOS 6.0及以上版本。
 ```json
 	- (void)applicationDidEnterBackground:(UIApplication *)application
 	{ 
-	//添加 
+	//在进入后台时，可停止停止服务
 	[FWMobService stop];  
 	//如果需要，可以在进入后台时，延时停止服务
     //[FWMobService delayStopWithTime:10.f];

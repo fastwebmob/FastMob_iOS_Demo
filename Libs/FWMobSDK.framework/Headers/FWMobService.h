@@ -11,11 +11,11 @@
 /*!
 	@discussion FastMob http tcp服务状态
 	@param
- FWMobServiceStatus：
- FWMobServiceStatusInit：初始化
- FWMobServiceStatusSuccessful：成功
- FWMobServiceStatusStopped：停止
- FWMobServiceStatusFailed：失败
+        FWMobServiceStatus：
+        FWMobServiceStatusInit：初始化
+        FWMobServiceStatusSuccessful：成功
+        FWMobServiceStatusStopped：停止
+        FWMobServiceStatusFailed：失败
  */
 typedef NS_ENUM(NSInteger, FWMobServiceStatus) {
     FWMobServiceStatusInit = 0,
@@ -93,6 +93,10 @@ typedef NS_ENUM(NSInteger,FWHttpHeaderCompressionMode){
     FWHttpHeaderCompressionStrict,
     FWHttpHeaderCompressionNoStrict,
 };
+
+#define FW_FM_NETWORK_CHANGE_NOTIFICATION           @"FastMobileNetworkChangeNotification"
+#define FW_FM_DATASIZE_NOTIFICATION                 @"FastMobileDataSizeNotification"
+#define FW_FM_DATASIZE_NOTI_KEY                     @"FastMobileDataSizeNotiKey"
 
 @interface FWMobService : NSObject
 /*!
@@ -198,13 +202,13 @@ typedef NS_ENUM(NSInteger,FWHttpHeaderCompressionMode){
 + (void)setHttpHeaderCompressionMode:(FWHttpHeaderCompressionMode)mode;
 
 /*!
-	@function acclerateOn
+	@function enableAccelerate
 	@discussion 加速功能是否开启
 	@param
  flag:
  true:开始加速功能 false:关闭加速功能
 	@result
  */
-+(void)acclerateOn:(BOOL)flag;
++(void)enableAccelerate:(BOOL)flag;
 
 @end

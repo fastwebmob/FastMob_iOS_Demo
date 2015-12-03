@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import <FWMobSDK/FWMobService.h>
 
 @interface WebViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -17,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnGoForward;
 @property (weak, nonatomic) IBOutlet UIButton *btnGoBack;
 @property (weak, nonatomic) IBOutlet UIButton *btnRefushStop;
+
+@property (atomic, strong) NSDate *loadStartDate;
+@property (atomic, assign) float currentLoadSize;
+
 - (IBAction)webGoFirstPage:(id)sender;
 - (IBAction)webGoForward:(id)sender;
 - (IBAction)webGoBack:(id)sender;
@@ -31,29 +36,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refushLoadTimeDataSize:) name:@"currentTimeAndDataNotification" object:nil];
-    
-    NSURL *URL = [NSURL URLWithString:self.loadUrlString];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    [_webView loadRequest:request];
     _webView.delegate = self;
     _webView.scalesPageToFit = YES;
     [self.view addSubview:_webView];
 
 }
--(void)refushLoadTimeDataSize:(NSNotification *)notification{
-    NSDictionary *dic = notification.userInfo;
-    if([dic.allKeys containsObject:@"urlAllData"]){
-        
-        _urlLoadData.text = [[NSString alloc]initWithFormat:@"Data size: %@",[dic valueForKey:@"urlAllData"]];
-    }
-    if ([dic.allKeys containsObject:@"urlAllTime"]) {
-        _urlLoadTime.text = [[NSString alloc]initWithFormat:@"Load time: %@s",[dic valueForKey:@"urlAllTime"]];
-    }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshLoadTimeDataSizeInfo:) name:FW_FM_DATASIZE_NOTIFICATION object:nil];
+    
+    _loadStartDate = [NSDate date];
+    _currentLoadSize = 0;
+    NSURL *URL = [NSURL URLWithString:self.loadUrlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+    [_webView loadRequest:request];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:FW_FM_DATASIZE_NOTIFICATION object:nil];
+}
+
+-(void)refreshLoadTimeDataSizeInfo:(NSNotification *)notification
+{
+    NSDictionary *dict = notification.userInfo;
+    if([dict.allKeys containsObject:FW_FM_DATASIZE_NOTI_KEY]){
+        NSNumber *dataSizeNumber = [dict objectForKey:FW_FM_DATASIZE_NOTI_KEY];
+        _currentLoadSize += dataSizeNumber.floatValue;
+        NSString *loadDataSizeString;
+        if(_currentLoadSize>=1024*1024){
+            loadDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fM",_currentLoadSize/(1024.0*1024.0)];
+        }else if(_currentLoadSize>=1024){
+            loadDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fK",_currentLoadSize/1024.0];
+        }else{
+            loadDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fB",_currentLoadSize];
+        }
+        
+        NSTimeInterval timeInterval = 0 - [_loadStartDate timeIntervalSinceNow];
+        NSNumber *urlLoadTime = [[NSNumber alloc]initWithLong:(long)(timeInterval*1000)];
+        
+        _urlLoadData.text = [[NSString alloc]initWithFormat:@"Data size: %@",loadDataSizeString];
+        _urlLoadTime.text = [[NSString alloc]initWithFormat:@"Load time cost: %zims", urlLoadTime.intValue];
+        
+    }
 }
 
 #pragma mark - WebView Delegate

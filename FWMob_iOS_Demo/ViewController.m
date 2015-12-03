@@ -57,7 +57,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self loadVCFromStoryboard];
-//    [FWMobileTestUtil clearDataAndTime];
     webVC.loadUrlString = (NSString*)[urlArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:webVC animated:true];
 }
@@ -120,6 +119,6 @@
 
 - (IBAction)accelerationSwitch:(id)sender {
     UISwitch *acceleSwitch = (UISwitch*)sender;
-    [FWMobService acclerateOn:acceleSwitch.on];
+    [FWMobService enableAccelerate:acceleSwitch.on];
 }
 @end
