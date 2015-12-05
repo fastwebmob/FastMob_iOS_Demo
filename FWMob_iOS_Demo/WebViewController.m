@@ -79,7 +79,7 @@
         NSNumber *urlLoadTime = [[NSNumber alloc]initWithLong:(long)(timeInterval*1000)];
         
         _urlLoadData.text = [[NSString alloc]initWithFormat:@"Data size: %@",loadDataSizeString];
-        _urlLoadTime.text = [[NSString alloc]initWithFormat:@"Load time cost: %zims", urlLoadTime.intValue];
+        _urlLoadTime.text = [[NSString alloc]initWithFormat:@"Load time: %zims", urlLoadTime.intValue];
         
     }
 }
