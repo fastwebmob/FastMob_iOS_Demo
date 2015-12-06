@@ -54,3 +54,8 @@ iOS 6.0及以上版本。
       [FWMobService start:@"your key"];
 	}
 ```
+
+注意：
+---
+请使用最新的Reachbility库，可将Demo中的Reachbility库复制或整合到项目中。
+如您的应用在Reachbility库中做了特殊处理，需要帮助，请联系我们的技术支持人员。
