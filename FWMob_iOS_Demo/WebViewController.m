@@ -12,7 +12,6 @@
 @interface WebViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UILabel *urlLoadTime;
-@property (weak, nonatomic) IBOutlet UILabel *urlLoadData;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnGoFirstPage;
 @property (weak, nonatomic) IBOutlet UIButton *btnGoForward;
@@ -21,6 +20,7 @@
 
 @property (atomic, strong) NSDate *loadStartDate;
 @property (atomic, assign) float currentLoadSize;
+@property (atomic, assign) float currentOriginalSize;
 
 - (IBAction)webGoFirstPage:(id)sender;
 - (IBAction)webGoForward:(id)sender;
@@ -49,6 +49,7 @@
     
     _loadStartDate = [NSDate date];
     _currentLoadSize = 0;
+    _currentOriginalSize = 0;
     NSURL *URL = [NSURL URLWithString:self.loadUrlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     [_webView loadRequest:request];
@@ -63,9 +64,12 @@
 -(void)refreshLoadTimeDataSizeInfo:(NSNotification *)notification
 {
     NSDictionary *dict = notification.userInfo;
-    if([dict.allKeys containsObject:FW_FM_DATASIZE_NOTI_KEY]){
-        NSNumber *dataSizeNumber = [dict objectForKey:FW_FM_DATASIZE_NOTI_KEY];
+    if([dict.allKeys containsObject:FW_FM_RESPONSEDATASIZE_NOTI_KEY]){
+        NSNumber *dataSizeNumber = [dict objectForKey:FW_FM_RESPONSEDATASIZE_NOTI_KEY];
+        NSNumber *originalSizeNumber = [dict objectForKey:FW_FM_RESPONSESOURCEDATASIZE_NOTI_KEY];
         _currentLoadSize += dataSizeNumber.floatValue;
+        _currentOriginalSize += originalSizeNumber.floatValue;
+        
         NSString *loadDataSizeString;
         if(_currentLoadSize>=1024*1024){
             loadDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fM",_currentLoadSize/(1024.0*1024.0)];
@@ -75,11 +79,19 @@
             loadDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fB",_currentLoadSize];
         }
         
+        NSString *oldDataSizeString;
+        if(_currentOriginalSize>=1024*1024){
+            oldDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fM",_currentOriginalSize/(1024.0*1024.0)];
+        }else if(_currentLoadSize>=1024){
+            oldDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fK",_currentOriginalSize/1024.0];
+        }else{
+            oldDataSizeString = [[NSString alloc]initWithFormat:@"%0.2fB",_currentOriginalSize];
+        }
+        
         NSTimeInterval timeInterval = 0 - [_loadStartDate timeIntervalSinceNow];
         NSNumber *urlLoadTime = [[NSNumber alloc]initWithLong:(long)(timeInterval*1000)];
         
-        _urlLoadData.text = [[NSString alloc]initWithFormat:@"Data size: %@",loadDataSizeString];
-        _urlLoadTime.text = [[NSString alloc]initWithFormat:@"Load time: %zims", urlLoadTime.intValue];
+        _urlLoadTime.text = [[NSString alloc]initWithFormat:@"Load time: %zims, Data size: %@, Original size: %@", urlLoadTime.intValue, loadDataSizeString, oldDataSizeString];
         
     }
 }

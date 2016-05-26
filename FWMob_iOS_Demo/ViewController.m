@@ -31,10 +31,9 @@
     [super viewDidLoad];
     self.navigationController.tabBarController.tabBar.hidden = true;
 
-    urlArray = [[NSArray alloc]initWithObjects:@"http://demo.fwmob.com:8080/fastmobdemo/index.html",nil];
+    urlArray = [[NSArray alloc]initWithObjects:@"http://demo.fwmob.com/", nil];
     self.urlTableView.delegate = self;
     self.urlTableView.dataSource = self;
-    
 }
 
 #pragma mark - 加载网址URL

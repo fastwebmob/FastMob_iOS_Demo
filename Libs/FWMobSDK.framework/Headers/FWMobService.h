@@ -24,19 +24,6 @@ typedef NS_ENUM(NSInteger, FWMobServiceStatus) {
     FWMobServiceStatusFailed = -1,
 };
 
-
-@protocol FWMobServiceStatusDelegate <NSObject>
-@optional
-/*!
-	@discussion http service状态改变回调
- */
-- (void)didGetHttpServiceStatus:(FWMobServiceStatus)status;
-/*!
-	@discussion tcp service状态改变回调
- */
-- (void)didGetTcpServiceStatus:(FWMobServiceStatus)status;
-@end
-
 /*!
 	@discussion FastMob内容层压缩等级
 	@param
@@ -96,7 +83,23 @@ typedef NS_ENUM(NSInteger,FWHttpHeaderCompressionMode){
 
 #define FW_FM_NETWORK_CHANGE_NOTIFICATION           @"FastMobileNetworkChangeNotification"
 #define FW_FM_DATASIZE_NOTIFICATION                 @"FastMobileDataSizeNotification"
-#define FW_FM_DATASIZE_NOTI_KEY                     @"FastMobileDataSizeNotiKey"
+
+#define FW_FM_REQUESTDATASIZE_NOTI_KEY              @"FastMobileRequestDataSizeNotiKey"
+#define FW_FM_RESPONSEDATASIZE_NOTI_KEY             @"FastMobileResponseDataSizeNotiKey"
+#define FW_FM_RESPONSESOURCEDATASIZE_NOTI_KEY       @"FastMobileResponseSourceDataSizeNotiKey"
+
+
+@protocol FWMobServiceStatusDelegate <NSObject>
+@optional
+/*!
+	@discussion http service状态改变回调
+ */
+- (void)didGetHttpServiceStatus:(FWMobServiceStatus)status;
+/*!
+	@discussion tcp service状态改变回调
+ */
+- (void)didGetTcpServiceStatus:(FWMobServiceStatus)status;
+@end
 
 @interface FWMobService : NSObject
 /*!

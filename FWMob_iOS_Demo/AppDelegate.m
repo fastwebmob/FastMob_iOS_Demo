@@ -27,7 +27,6 @@
     //如需内网调试时，可以全用此API暂时关闭加速服务，发布时，勿忘打开加速
 //    [FWMobService enableAccelerate:NO];
     
-    
     return YES;
 }
 
